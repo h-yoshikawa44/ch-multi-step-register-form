@@ -20,9 +20,115 @@
     />
   </head>
   <body>
-    <div id="app">
-      <h1>Vite App</h1>
-    </div>
+    <header class="header">
+      <h1>Multi-step Register Form</h1>
+    </header>
+    <main class="main">
+      <div class="container">
+        <div class="register-form-layout">
+          <form class="register-form" action="">
+            <fieldset class="register-form__fieldset">
+              <legend class="register-form__title">Register</legend>
+              <div class="register-form__input-area">
+                <label class="register-form__input-label"
+                  ><span class="register-form__input-label-text">Name</span
+                  ><input
+                    class="register-form__input"
+                    name="userName"
+                    type="text"
+                    placeholder="enter your name"
+                    autocomplete="name"
+                /></label>
+                <label class="register-form__input-label"
+                  ><span class="register-form__input-label-text">Email</span
+                  ><input
+                    class="register-form__input"
+                    name="userEmail"
+                    type="email"
+                    placeholder="example@gmail.com"
+                    autocomplete="email"
+                /></label>
+              </div>
+              <div class="register-form__button-wrapper">
+                <button class="register-form__button" type="button">
+                  Continue
+                </button>
+              </div>
+            </fieldset>
+            <fieldset class="register-form__fieldset">
+              <legend class="register-form__title">
+                Which topics you are interested in?
+              </legend>
+              <div class="register-form__check-area">
+                <label class="register-form__custom-check-box"
+                  ><input
+                    class="register-form__check-box"
+                    name="interestedTopic"
+                    type="checkbox"
+                    value="Software Development"
+                  />Software Development</label
+                >
+                <label class="register-form__custom-check-box"
+                  ><input
+                    class="register-form__check-box"
+                    name="interestedTopic"
+                    type="checkbox"
+                    value="User Experience"
+                  />User Experience</label
+                >
+                <label class="register-form__custom-check-box"
+                  ><input
+                    class="register-form__check-box"
+                    name="interestedTopic"
+                    type="checkbox"
+                    value="Graphic Design"
+                  />Graphic Design</label
+                >
+              </div>
+              <div class="register-form__button-wrapper">
+                <button class="register-form__button" type="button">
+                  Continue
+                </button>
+              </div>
+            </fieldset>
+            <div>
+              <p class="register-form__title">Summary</p>
+              <div class="register-form__summary-user-info">
+                <p>
+                  <span class="register-form__summary-title">Name:&nbsp;</span
+                  ><span class="register-form__summary-value"></span>
+                </p>
+                <p>
+                  <span class="register-form__summary-title">Email:&nbsp;</span
+                  ><span class="register-form__summary-value"></span>
+                </p>
+              </div>
+              <div class="register-form__summary-topic-info">
+                <p class="register-form__summary-title">Topics:&nbsp;</p>
+                <ul
+                  class="register-form__summary-topic-info-list register-form__summary-value"
+                >
+                  <li></li>
+                </ul>
+              </div>
+              <div class="register-form__button-wrapper">
+                <button class="register-form__button" type="submit">
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="step-info">
+          <small class="step-info__text">Step 1 of 3</small>
+          <div class="step-info__step-group">
+            <span class="step-info__step step-info__step--active"></span>
+            <span class="step-info__step"></span>
+            <span class="step-info__step"></span>
+          </div>
+        </div>
+      </div>
+    </main>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>
