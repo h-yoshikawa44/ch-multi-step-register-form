@@ -39,10 +39,22 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-base);
+  background-color: var(--background-color);
+  background-image: url('/images/blur-radial.svg'),
+    url('/images/blur-radial.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* 画像の半分の大きさを指定して、画像の中央が左上右下にちょうどくるようにする */
+  background-position-x:
+    left -365px,
+    right -365px;
+  background-position-y:
+    top -365px,
+    bottom -365px;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color);
 }
 
 /* common
@@ -77,7 +89,7 @@ body {
 -------------------- */
 
 .main {
-  margin-top: 184px;
+  padding-top: 184px;
 }
 
 .register-form-layout {
