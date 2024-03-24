@@ -48,6 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkedCheckBoxNodeList = document.querySelectorAll(
       "input[name='interestedTopic']:checked",
     );
+
+    // トピックが1つも選択されていない場合は次に進まず、最低1つ選択を促す
+    if (checkedCheckBoxNodeList.length === 0) {
+      const topicErrorMsg = document.getElementById('topic-error-msg');
+      topicErrorMsg.classList.remove(hiddenClass);
+      return;
+    }
+
     formValues['interestedTopic'] = Array.from(checkedCheckBoxNodeList).map(
       (checkBox) => checkBox.value,
     );

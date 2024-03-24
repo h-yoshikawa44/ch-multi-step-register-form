@@ -216,6 +216,12 @@ body {
   height: 0;
 }
 
+.register-form__check-error-msg {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--form-primary-text-color);
+}
+
 .register-form__summary-user-info {
   display: flex;
   flex-direction: column;
