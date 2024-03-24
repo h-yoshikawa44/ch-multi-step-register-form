@@ -216,6 +216,12 @@ body {
   height: 0;
 }
 
+.register-form__check-error-msg {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--form-primary-text-color);
+}
+
 .register-form__summary-user-info {
   display: flex;
   flex-direction: column;
@@ -245,7 +251,8 @@ body {
   display: flex;
   column-gap: 24px;
   align-items: center;
-  padding: 16px 108px;
+  padding-block: 16px;
+  padding-left: 108px;
 }
 
 .step-info__text {
@@ -269,11 +276,12 @@ body {
   border-radius: 50%;
 }
 
+.step-info__step--current,
 .step-info__step--active {
   background-color: var(--step-active-color);
 }
 
-.step-info__step--active::after {
+.step-info__step--current::after {
   position: absolute;
   top: -5px;
   left: -5px;
