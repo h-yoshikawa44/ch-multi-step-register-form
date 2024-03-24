@@ -1,15 +1,22 @@
-name: Develop Check
+name: Main Check & Deploy
+
 on:
-  workflow_call:
   push:
-    branches-ignore:
+    branches:
       - main
 
 jobs:
   check:
-    name: Lint
+    uses: ./.github/workflows/develop.yml
+
+  deploy:
+    name: Build & Deploy
+    needs: check
     runs-on: ubuntu-22.04
     timeout-minutes: 5
+    permissions:
+      # gh-pages ブランチへの書き込み用
+      contents: write
 
     steps:
       - name: Checkout
@@ -25,16 +32,20 @@ jobs:
       - name: Package Clean Install
         run: npm ci
 
-      - name: MarkupLint && StyleLint & Prettier
-        run: npm run lint-check
+      - name: Build & Deploy to GitHub Pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>" -m "${{ github.event.head_commit.message }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Slack Notification by NonSuccess
+      - name: Slack Notification
         uses: 8398a7/action-slack@v3
-        if: success() != true
+        if: always()
         with:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow
-          author_name: 'check'
+          author_name: 'deploy'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
