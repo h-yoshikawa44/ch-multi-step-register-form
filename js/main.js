@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     alert(
-      'dummy submit.\n(The information you entered has not been sent anywhere.)',
+      '✅ Success.\n(dummy submit. The information you entered has not been sent anywhere.)',
     );
   });
 });
