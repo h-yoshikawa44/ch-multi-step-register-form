@@ -27,7 +27,7 @@
       <div class="container">
         <div class="register-form-layout">
           <form class="register-form" action="">
-            <fieldset class="register-form__fieldset">
+            <fieldset id="user-info-form" class="register-form__fieldset">
               <legend class="register-form__title">Register</legend>
               <div class="register-form__input-area">
                 <label class="register-form__input-label"
@@ -50,12 +50,16 @@
                 /></label>
               </div>
               <div class="register-form__button-wrapper">
-                <button class="register-form__button" type="button">
+                <button
+                  id="user-info-form-continue-button"
+                  class="register-form__button"
+                  type="button"
+                >
                   Continue
                 </button>
               </div>
             </fieldset>
-            <fieldset class="register-form__fieldset">
+            <fieldset id="topic-form" class="register-form__fieldset hidden">
               <legend class="register-form__title">
                 Which topics you are interested in?
               </legend>
@@ -86,12 +90,16 @@
                 >
               </div>
               <div class="register-form__button-wrapper">
-                <button class="register-form__button" type="button">
+                <button
+                  id="topic-form-continue-button"
+                  class="register-form__button"
+                  type="button"
+                >
                   Continue
                 </button>
               </div>
             </fieldset>
-            <div>
+            <div id="summary" class="hidden">
               <p class="register-form__title">Summary</p>
               <div class="register-form__summary-user-info">
                 <p>
@@ -120,11 +128,14 @@
           </form>
         </div>
         <div class="step-info">
-          <small class="step-info__text">Step 1 of 3</small>
+          <small id="step-info-text" class="step-info__text">Step 1 of 3</small>
           <div class="step-info__step-group">
-            <span class="step-info__step step-info__step--active"></span>
-            <span class="step-info__step"></span>
-            <span class="step-info__step"></span>
+            <span
+              id="step-one"
+              class="step-info__step step-info__step--current"
+            ></span>
+            <span id="step-two" class="step-info__step"></span>
+            <span id="step-three" class="step-info__step"></span>
           </div>
         </div>
       </div>

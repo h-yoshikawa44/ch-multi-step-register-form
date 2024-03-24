@@ -269,11 +269,12 @@ body {
   border-radius: 50%;
 }
 
+.step-info__step--current,
 .step-info__step--active {
   background-color: var(--step-active-color);
 }
 
-.step-info__step--active::after {
+.step-info__step--current::after {
   position: absolute;
   top: -5px;
   left: -5px;
