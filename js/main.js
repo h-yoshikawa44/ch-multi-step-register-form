@@ -14,24 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
     interestedTopic: [],
   };
 
-  const registerFormBase = document.getElementById('register-form-base');
   const userInfoForm = document.getElementById('user-info-form');
   const topicForm = document.getElementById('topic-form');
-  const summary = document.getElementById('summary');
-
-  const userInfoFormContinueButton = document.getElementById(
-    'user-info-form-continue-button',
-  );
-  const topicFormContinueButton = document.getElementById(
-    'topic-form-continue-button',
-  );
+  const summaryForm = document.getElementById('summary-form');
 
   const stepInfoText = document.getElementById('step-info-text');
   const stepOne = document.getElementById('step-one');
   const stepTwo = document.getElementById('step-two');
   const stepThree = document.getElementById('step-three');
 
-  const handleUserInfoNext = () => {
+  const handleUserInfoNext = (e) => {
+    e.preventDefault();
+
     formValues['userName'] = document.querySelector(
       "input[name='userName']",
     ).value;
@@ -48,7 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     stepTwo.classList.add(stepCurrentClass);
   };
 
-  const handleTopicNext = () => {
+  const handleTopicNext = (e) => {
+    e.preventDefault();
+
     const checkedCheckBoxNodeList = document.querySelectorAll(
       "input[name='interestedTopic']:checked",
     );
@@ -58,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setSummary();
 
     topicForm.classList.add(hiddenClass);
-    summary.classList.remove(hiddenClass);
+    summaryForm.classList.remove(hiddenClass);
 
     stepInfoText.textContent = 'Step 3 of 3';
     stepTwo.classList.remove(stepCurrentClass);
@@ -87,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  userInfoFormContinueButton.addEventListener('click', handleUserInfoNext);
-  topicFormContinueButton.addEventListener('click', handleTopicNext);
+  userInfoForm.addEventListener('submit', handleUserInfoNext);
+  topicForm.addEventListener('submit', handleTopicNext);
 
-  registerFormBase.addEventListener('submit', (e) => {
+  summaryForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     alert(

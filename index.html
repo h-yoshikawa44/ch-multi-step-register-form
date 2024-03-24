@@ -26,8 +26,8 @@
     <main class="main">
       <div class="container">
         <div class="register-form-layout">
-          <form id="register-form-base" class="register-form" action="">
-            <fieldset id="user-info-form" class="register-form__fieldset">
+          <form id="user-info-form" class="register-form">
+            <fieldset class="register-form__fieldset">
               <legend class="register-form__title">Register</legend>
               <div class="register-form__input-area">
                 <label class="register-form__input-label"
@@ -50,16 +50,14 @@
                 /></label>
               </div>
               <div class="register-form__button-wrapper">
-                <button
-                  id="user-info-form-continue-button"
-                  class="register-form__button"
-                  type="button"
-                >
+                <button class="register-form__button" type="submit">
                   Continue
                 </button>
               </div>
             </fieldset>
-            <fieldset id="topic-form" class="register-form__fieldset hidden">
+          </form>
+          <form id="topic-form" class="register-form hidden">
+            <fieldset class="register-form__fieldset">
               <legend class="register-form__title">
                 Which topics you are interested in?
               </legend>
@@ -90,47 +88,43 @@
                 >
               </div>
               <div class="register-form__button-wrapper">
-                <button
-                  id="topic-form-continue-button"
-                  class="register-form__button"
-                  type="button"
-                >
+                <button class="register-form__button" type="submit">
                   Continue
                 </button>
               </div>
             </fieldset>
-            <div id="summary" class="hidden">
-              <p class="register-form__title">Summary</p>
-              <div class="register-form__summary-user-info">
-                <p>
-                  <span class="register-form__summary-title">Name:&nbsp;</span
-                  ><span
-                    id="summary-user-name"
-                    class="register-form__summary-value"
-                  ></span>
-                </p>
-                <p>
-                  <span class="register-form__summary-title">Email:&nbsp;</span
-                  ><span
-                    id="summary-user-email"
-                    class="register-form__summary-value"
-                  ></span>
-                </p>
-              </div>
-              <div class="register-form__summary-topic-info">
-                <p class="register-form__summary-title">Topics:&nbsp;</p>
-                <ul
-                  id="summary-topic-info-list"
-                  class="register-form__summary-topic-info-list register-form__summary-value"
-                >
-                  <li>(None)</li>
-                </ul>
-              </div>
-              <div class="register-form__button-wrapper">
-                <button class="register-form__button" type="submit">
-                  Confirm
-                </button>
-              </div>
+          </form>
+          <form id="summary-form" class="register-form hidden">
+            <p class="register-form__title">Summary</p>
+            <div class="register-form__summary-user-info">
+              <p>
+                <span class="register-form__summary-title">Name:&nbsp;</span
+                ><span
+                  id="summary-user-name"
+                  class="register-form__summary-value"
+                ></span>
+              </p>
+              <p>
+                <span class="register-form__summary-title">Email:&nbsp;</span
+                ><span
+                  id="summary-user-email"
+                  class="register-form__summary-value"
+                ></span>
+              </p>
+            </div>
+            <div class="register-form__summary-topic-info">
+              <p class="register-form__summary-title">Topics:&nbsp;</p>
+              <ul
+                id="summary-topic-info-list"
+                class="register-form__summary-topic-info-list register-form__summary-value"
+              >
+                <li>(None)</li>
+              </ul>
+            </div>
+            <div class="register-form__button-wrapper">
+              <button class="register-form__button" type="submit">
+                Confirm
+              </button>
             </div>
           </form>
         </div>
