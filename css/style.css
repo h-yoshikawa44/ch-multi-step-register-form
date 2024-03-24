@@ -15,20 +15,19 @@
   --background-color: var(--black);
   --form-background-color: var(--light-black);
   --border-color: var(--gray);
-  --highlight-line-color: var(--white);
+  --hover-highlight-line-color: var(--white);
+  --focus-highlight-line-color: var(--dark-purple);
   --form-primary-text-color: var(--white);
   --form-secondary-text-color: var(--light-gray);
-  --form-placeholder-text-color: var(--dark-gray);
+  --form-placeholder-text-color: var(--gray);
   --form-button-start-color: var(--purple);
   --form-button-end-color: var(--dark-purple);
   --form-button-text-color: var(--white);
   --form-check-color: var(--dark-gray);
   --form-check-active-color: var(--dark-purple);
   --form-check-active-border-color: var(--purple);
-  --step-text-color: var(--light-black);
-  --step-color: var(--gray);
+  --step-color: var(--dark-gray);
   --step-active-color: var(--purple);
-  --step-active-background-color: var(--dark-gray);
 
   /* font */
   --font-base: 'Inter', inter, system-ui, avenir, helvetica, arial, sans-serif;
@@ -149,9 +148,12 @@ body {
   outline: none;
 }
 
-.register-form__input:hover,
+.register-form__input:hover {
+  border: 2px solid var(--hover-highlight-line-color);
+}
+
 .register-form__input:focus {
-  border: 2px solid var(--highlight-line-color);
+  border: 2px solid var(--focus-highlight-line-color);
 }
 
 .register-form__input::placeholder {
@@ -165,9 +167,10 @@ body {
 }
 
 .register-form__button {
-  padding: 12px 36px;
+  padding: 12px 40px;
   font-size: 0.75rem;
   color: var(--form-button-text-color);
+  cursor: pointer;
   background-image: linear-gradient(
     180deg,
     var(--form-button-start-color),
@@ -175,6 +178,10 @@ body {
   );
   border: none;
   border-radius: 24px;
+}
+
+.register-form__button:not(:focus-visible) {
+  outline-color: transparent;
 }
 
 .register-form__check-area {
@@ -210,7 +217,10 @@ body {
 }
 
 .register-form__summary-user-info {
-  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  margin-top: 28px;
 }
 
 .register-form__summary-topic-info {
@@ -240,7 +250,7 @@ body {
 
 .step-info__text {
   font-size: 0.75rem;
-  color: var(--step-text-color);
+  color: var(--step-color);
 }
 
 /* position と z-index は .step-info__step--active::after を後ろに表示するためのもの */
@@ -253,8 +263,8 @@ body {
 
 .step-info__step {
   position: relative;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background-color: var(--step-color);
   border-radius: 50%;
 }
@@ -265,13 +275,13 @@ body {
 
 .step-info__step--active::after {
   position: absolute;
-  top: -4px;
-  left: -4px;
+  top: -5px;
+  left: -5px;
   z-index: -1;
   display: inline-block;
   width: 20px;
   height: 20px;
   content: '';
-  background: var(--step-active-background-color);
+  background: var(--step-color);
   border-radius: 50%;
 }
