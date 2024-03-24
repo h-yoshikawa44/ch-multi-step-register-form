@@ -26,7 +26,7 @@
     <main class="main">
       <div class="container">
         <div class="register-form-layout">
-          <form class="register-form" action="">
+          <form id="register-form-base" class="register-form" action="">
             <fieldset id="user-info-form" class="register-form__fieldset">
               <legend class="register-form__title">Register</legend>
               <div class="register-form__input-area">
@@ -104,19 +104,26 @@
               <div class="register-form__summary-user-info">
                 <p>
                   <span class="register-form__summary-title">Name:&nbsp;</span
-                  ><span class="register-form__summary-value"></span>
+                  ><span
+                    id="summary-user-name"
+                    class="register-form__summary-value"
+                  ></span>
                 </p>
                 <p>
                   <span class="register-form__summary-title">Email:&nbsp;</span
-                  ><span class="register-form__summary-value"></span>
+                  ><span
+                    id="summary-user-email"
+                    class="register-form__summary-value"
+                  ></span>
                 </p>
               </div>
               <div class="register-form__summary-topic-info">
                 <p class="register-form__summary-title">Topics:&nbsp;</p>
                 <ul
+                  id="summary-topic-info-list"
                   class="register-form__summary-topic-info-list register-form__summary-value"
                 >
-                  <li></li>
+                  <li>(None)</li>
                 </ul>
               </div>
               <div class="register-form__button-wrapper">

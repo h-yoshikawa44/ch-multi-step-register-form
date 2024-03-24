@@ -1,4 +1,4 @@
-/* global document */
+/* global document, alert */
 
 import '../css/reset.css';
 import '../css/style.css';
@@ -8,6 +8,13 @@ const stepCurrentClass = 'step-info__step--current';
 const stepActiveClass = 'step-info__step--active';
 
 document.addEventListener('DOMContentLoaded', () => {
+  const formValues = {
+    userName: '',
+    userEmail: '',
+    interestedTopic: [],
+  };
+
+  const registerFormBase = document.getElementById('register-form-base');
   const userInfoForm = document.getElementById('user-info-form');
   const topicForm = document.getElementById('topic-form');
   const summary = document.getElementById('summary');
@@ -25,6 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const stepThree = document.getElementById('step-three');
 
   const handleUserInfoNext = () => {
+    formValues['userName'] = document.querySelector(
+      "input[name='userName']",
+    ).value;
+    formValues['userEmail'] = document.querySelector(
+      "input[name='userEmail']",
+    ).value;
+
     userInfoForm.classList.add(hiddenClass);
     topicForm.classList.remove(hiddenClass);
 
@@ -35,6 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const handleTopicNext = () => {
+    const checkedCheckBoxNodeList = document.querySelectorAll(
+      "input[name='interestedTopic']:checked",
+    );
+    formValues['interestedTopic'] = Array.from(checkedCheckBoxNodeList).map(
+      (checkBox) => checkBox.value,
+    );
+    setSummary();
+
     topicForm.classList.add(hiddenClass);
     summary.classList.remove(hiddenClass);
 
@@ -44,6 +66,35 @@ document.addEventListener('DOMContentLoaded', () => {
     stepThree.classList.add(stepCurrentClass);
   };
 
+  const setSummary = () => {
+    const summaryUserName = document.getElementById('summary-user-name');
+    const summaryUserEmail = document.getElementById('summary-user-email');
+    const summaryTopicInfoList = document.getElementById(
+      'summary-topic-info-list',
+    );
+
+    summaryUserName.textContent = formValues['userName'];
+    summaryUserEmail.textContent = formValues['userEmail'];
+
+    if (formValues['interestedTopic'].length === 0) return;
+
+    summaryTopicInfoList.innerHTML = '';
+    formValues['interestedTopic'].forEach((topic) => {
+      const topicText = document.createTextNode(topic);
+      const topicListItem = document.createElement('li');
+      topicListItem.appendChild(topicText);
+      summaryTopicInfoList.appendChild(topicListItem);
+    });
+  };
+
   userInfoFormContinueButton.addEventListener('click', handleUserInfoNext);
   topicFormContinueButton.addEventListener('click', handleTopicNext);
+
+  registerFormBase.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    alert(
+      'dummy submit.\n(The information you entered has not been sent anywhere.)',
+    );
+  });
 });
