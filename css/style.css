@@ -39,8 +39,8 @@ body {
   margin: 0;
   font-family: var(--font-base);
   background-color: var(--background-color);
-  background-image: url('/images/blur-radial.svg'),
-    url('/images/blur-radial.svg');
+  background-image:
+    url('/images/blur-radial.svg'), url('/images/blur-radial.svg');
   background-repeat: no-repeat;
   background-attachment: fixed;
 
@@ -79,9 +79,9 @@ body {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+  clip-path: inset(50%);
 }
 
 /* main
@@ -142,10 +142,10 @@ body {
   padding: 12px;
   font-size: 0.75rem;
   color: var(--form-primary-text-color);
+  outline: none;
   background-color: var(--form-background-color);
   border: 2px solid var(--border-color);
   border-radius: 12px;
-  outline: none;
 }
 
 .register-form__input:hover {
