@@ -39,8 +39,8 @@ body {
   margin: 0;
   font-family: var(--font-base);
   background-color: var(--background-color);
-  background-image: url('/images/blur-radial.svg'),
-    url('/images/blur-radial.svg');
+  background-image:
+    url('/images/blur-radial.svg'), url('/images/blur-radial.svg');
   background-repeat: no-repeat;
   background-attachment: fixed;
 
